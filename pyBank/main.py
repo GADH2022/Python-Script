@@ -26,8 +26,7 @@ with open(csvpath) as csvfile :
         # revenue.append(int(row[1]))
         revenue.append(int(row[1]))
         date.append(row[0])
-    print(revenue)
-    print(date)
+    
 #calculate changes in profits/losses over entire period,and average of those changes
     
     for i in range(1,len(revenue)):   
@@ -35,33 +34,35 @@ with open(csvpath) as csvfile :
            avg_rev_change = round(sum(revenue_change)/len(revenue_change),2)
 
     date_max=dict(zip(revenue_change, date))
-    print(date_max) 
+   # print(date_max) 
     max_increase_value = max(revenue_change)
     min_increase_value = min(revenue_change)   
-    for key,value in date_max.items():
-        if(date_max[key]-1 == max_increase_value):
-            date_increase = value
+   # for key,value in date_max.items():
+    #    if(date_max[key]-1 == max_increase_value):
+     #       date_increase = value
         #   date_increase_1 = value+1 
     # for max_increase_value in date_max.items():
     #     date_increase = {date, max_increase_value}
-    print(date_increase)
+     #print(date_increase)
     # print(date_increase+1)
     # max_increase_month = revenue_change.index(max_increase_value)+ 1
     # max_decrease_month = revenue_change.index(min_increase_value)+ 1 
     # print(max_increase_month) 
-    # print(max_decrease_month)  
+    # print(max_decrease_month) 
+    bank_py ="Financial Analysis \n ----------------------------------------\n Toatl months:{} \n Total: $ {} \n Average Change:$ {} \n Greatest increase in Profits: $ ({})\n Greatest decrease in profits: $({})".format(row_count,total,avg_rev_change,max_increase_value,min_increase_value)
+                
     print("Financial Analysis")
     print("-------------------------------------------------------") 
     print("total months:" ,row_count)
     print("Total:" , "$" , total)
     print("Average Change: ","$" , avg_rev_change)
 
-    # print(f"Greatest Increase in Profits:", {max_increase_month}, "$" ,(int(max_increase_value)))
-    # print(f"Greatest Decrease in Profits:", {max_decrease_month}, "$" ,(int(min_increase_value)))
+    print(f"Greatest Increase in Profits:",  "$" ,(int(max_increase_value)))
+    print(f"Greatest Decrease in Profits:",  "$" ,(int(min_increase_value)))
     
     #calculate Greatest increase in profits(date and amount)
     #calculate Greatest decrease in profits(date and amount)
 #output to file
-#file1 = open("pybank.txt","w") 
-#file1.writelines() #Write analysis into pybank.txt
-
+file1 = open("pybank.txt","w") 
+file1.writelines(bank_py) #Write analysis into pybank.txt
+file1.close()
