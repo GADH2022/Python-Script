@@ -39,8 +39,8 @@ diana_percent = round( ( (diana_votes/ total_votes) * 100),3)
 raymon_percent = round(( (raymon_votes/total_votes ) * 100),3)
 
 #output data 
-print("Winner :",winner)
-print("Winner :",winner)
+#print("Winner :",winner)
+#print("Winner :",winner)
 Analysis1 = "Election Results\n--------------------\nTotal Votes:{}\n----------------------------------------\nCharles Casper Stockham : {}% ({})\n Diana DeGette :{}% ({})\nRaymon Anthony Doane: {}% ({})\n----------------------------\nWinner:{}\n -------------- ".format(total_votes,casper_percent,casper_votes,diana_percent,diana_votes,raymon_percent,raymon_votes,winner)
 print(Analysis1)           
 print(f"Election Results")
